@@ -23,18 +23,12 @@
     "ERWT"
   ],
   "author": {
-    "name": "codesbiome",
-    "url": "https://github.com/codesbiome"
+    "name": "Bryan Ngo",
+    "url": "https://github.com/bryngo"
   },
-  "contributors": [
-    {
-      "name": "guasam",
-      "url": "https://github.com/guasam"
-    }
-  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/codesbiome/electron-react-webpack-typescript-2023"
+    "url": "https://github.com/bryngo/GroupChat-electron"
   },
   "license": "MIT",
   "config": {
