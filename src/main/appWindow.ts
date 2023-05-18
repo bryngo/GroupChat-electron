@@ -1,6 +1,8 @@
-import { app, BrowserWindow } from 'electron';
-import path from 'path';
-import { registerTitlebarIpc } from '@misc/window/titlebarIPC';
+import { app, BrowserWindow } from 'electron'
+import path from 'path'
+import { registerTitlebarIpc } from '@misc/window/titlebarIPC'
+import { registerApiCallsIpc } from '@misc/window/apiCallIpc'
+
 
 // Electron Forge automatically creates these entry points
 declare const APP_WINDOW_WEBPACK_ENTRY: string;
@@ -17,15 +19,15 @@ export function createAppWindow(): BrowserWindow {
   appWindow = new BrowserWindow({
     width: 800,
     height: 600,
-    backgroundColor: '#202020',
+    // backgroundColor: '#202020',
     show: false,
     autoHideMenuBar: true,
     frame: true, // setting this to false makes window scaling not work for some reason
     titleBarStyle: 'hidden',
     icon: path.resolve('assets/images/appIcon.ico'),
     webPreferences: {
-      nodeIntegration: false,
-      contextIsolation: true,
+      nodeIntegration: true,
+      contextIsolation: false,
       nodeIntegrationInWorker: false,
       nodeIntegrationInSubFrames: false,
       preload: APP_WINDOW_PRELOAD_WEBPACK_ENTRY,
@@ -48,6 +50,8 @@ export function createAppWindow(): BrowserWindow {
     app.quit();
   });
 
+  appWindow.webContents.openDevTools()
+
   return appWindow;
 }
 
@@ -60,4 +64,6 @@ function registerMainIPC() {
    * to Communicate asynchronously from the main process to renderer processes.
    */
   registerTitlebarIpc(appWindow);
+  registerApiCallsIpc(appWindow)
+
 }

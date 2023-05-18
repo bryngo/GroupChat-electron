@@ -180,3 +180,11 @@ tools/forge/forge.config.js
 ```
 
 For further information, you can visit [Electron Forge Configuration](https://www.electronforge.io/configuration)
+
+
+
+
+# GroupMe
+
+## Useful links
+- [Setting up IPC](https://www.intertech.com/electron-3-methods-for-inter-process-communications-ipc/) 
